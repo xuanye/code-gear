@@ -1,0 +1,26 @@
+{
+  "name": "code-gear",
+  "version": "1.0.0",
+  "description": "代码生成器",
+  "main": "./lib/index.js",
+  "bin": {
+    "code-gear": "./bin/code-gear.js"
+  },
+  "scripts": {
+    "start": "node ./bin/code-gear.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:xuanye/code-gear.git",
+  "author": "xuanye wong",
+  "license": "MIT",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "async": "^2.6.2",
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "inquirer": "^6.2.2",
+    "lodash": "^4.17.11",
+    "mysql": "^2.16.0",
+    "rimraf": "^2.6.3"
+  }
+}
