@@ -220,3 +220,9 @@ namespace Sample.Impl.Model
 ```
 > code-gear
 ```
+
+或者指定配置文件
+
+```
+> code-gear -c code-gear.config.js
+```
