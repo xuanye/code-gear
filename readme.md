@@ -215,3 +215,8 @@ namespace Sample.Impl.Model
 }
 ```
 
+### 1.5 在code-gear.config.js目录执行命令
+
+```
+> code-gear
+```
