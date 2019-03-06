@@ -1,6 +1,6 @@
 {
   "name": "code-gear",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "代码生成器",
   "main": "./lib/index.js",
   "bin": {
@@ -20,6 +20,7 @@
     "commander": "^2.19.0",
     "inquirer": "^6.2.2",
     "lodash": "^4.17.11",
+    "mkdirp": "^0.5.1",
     "mysql": "^2.16.0",
     "rimraf": "^2.6.3"
   }

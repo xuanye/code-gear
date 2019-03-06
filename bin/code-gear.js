@@ -6,12 +6,8 @@ const program = require('commander'),
 
 program
   .version('1.0.0')  
+  .option('-c, --config [config]', '配置文件名称','code-gear.config.js')
   .description('生成数据库实体类')
-  .action(function(option) {
-    //option.w
-    //and codeGear Some thing   
-    codeGear.generate();
-  
-  });
+  .parse(process.argv);
 
-program.parse(process.argv);
+codeGear.generate(program.config);
