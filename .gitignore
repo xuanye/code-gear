@@ -16,6 +16,4 @@ db.json
 *.sublime-project
 *.sublime-workspace
 package-lock.json
-
-code-gear.config.js
 .generate/
