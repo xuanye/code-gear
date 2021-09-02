@@ -1,6 +1,6 @@
 code-gear
 ----
-根据Mysql数据库，生成实体等功能
+根据Mysql/MSSQL数据库，生成实体等功能，具体差异请查看 code-gear.mysql.js 和 code-gear.mssql.js
 
 ## 1. 使用
 
@@ -13,7 +13,7 @@ code-gear
 
 ### 1.2 编写 code-gear.config.js
 
-以下是一个简单的实例,详见注释
+以下是一个简单的mysql实例,详见注释
 
 ```
 module.exports = {
