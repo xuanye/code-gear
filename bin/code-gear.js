@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 
 const program = require('commander'),
-    chalk = require('chalk'),
     codeGear = require('../lib/index');
 
 program

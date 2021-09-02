@@ -20,23 +20,24 @@ module.exports = {
         if (!summary) {
             return 'nothing~';
         }
-
         return summary.replace(/([\r\n]+)/gi, '\n\t\t/// ');
     },
     toCSharpType: function (c) {
         var IsClass = false;
         var csharpType = '';
-        var columnType = c.columnType || 'unknown';
-        var unsigned = columnType.indexOf('unsigned') >= 0;
+
         switch (c.dataType) {
-            case 'varchar':
-            case 'mediumtext':
-            case 'tinytext':
+            case 'image':
+                csharpType = 'byte[]';
+                break;
             case 'text':
                 csharpType = 'string';
                 break;
             case 'binary':
                 csharpType = 'byte[]';
+                break;
+            case 'tinyint':
+                csharpType = 'byte';
                 break;
             case 'date':
                 csharpType = 'DateTime';
@@ -47,79 +48,86 @@ module.exports = {
             case 'bit':
                 csharpType = 'bool';
                 break;
-            case 'numeric':
+            case 'smallint':
+                csharpType = 'short';
+                break;
             case 'decimal':
-            case 'dec':
-            case 'fixed':
+                csharpType = 'decimal';
+                break;
+            case 'int':
+                csharpType = 'int';
+                break;
+            case 'smalldatetime':
+                csharpType = 'DateTime';
+                break;
+            case 'real':
+                csharpType = 'float';
+                break;
+            case 'money':
                 csharpType = 'decimal';
                 break;
             case 'datetime':
                 csharpType = 'DateTime';
                 break;
             case 'float':
-                csharpType = 'float';
-                break;
-            case 'double':
                 csharpType = 'double';
+                break;
+            case 'numeric':
+                csharpType = 'decimal';
+                break;
+            case 'smallmoney':
+                csharpType = 'decimal';
+                break;
+            case 'datetime2':
+                csharpType = 'DateTime';
+                break;
+            case 'bigint':
+                csharpType = 'long';
                 break;
             case 'varbinary':
                 csharpType = 'byte[]';
                 break;
+            case 'timestamp':
+                csharpType = 'byte[]';
+                break;
+            case 'sysname':
+                csharpType = 'string';
+                break;
+            case 'nvarchar':
+                csharpType = 'string';
+                break;
             case 'varchar':
                 csharpType = 'string';
                 break;
-            case 'year':
-                csharpType = 'DateTime';
-                break;
-            case 'enum':
-            case 'set':
+            case 'ntext':
                 csharpType = 'string';
                 break;
-            case 'bool':
-            case 'boolean':
-                csharpType = 'bool';
+            case 'uniqueidentifier':
+                csharpType = 'Guid';
                 break;
-            case 'serial':
-                csharpType = 'ulong';
+            case 'datetimeoffset':
+                csharpType = 'DateTimeOffset';
                 break;
-            case 'mediumblob':
-            case 'longblob':
-            case 'blob':
-                csharpType = 'byte[]';
+            case 'sql_variant':
+                csharpType = 'object';
                 break;
-            case 'tinyblob':
-                csharpType = 'byte[]';
+            case 'xml':
+                csharpType = 'string';
                 break;
 
-            case 'smallint':
-                csharpType = unsigned ? 'ushort' : 'short';
-                break;
-            case 'mediumint':
-            case 'int':
-            case 'integer':
-                csharpType = unsigned ? 'uint' : 'int';
-                break;
-            case 'real':
-                csharpType = 'double';
-                break;
-            case 'bigint':
-                csharpType = unsigned ? 'ulong' : 'long';
-                break;
             case 'char':
-                csharpType = 'string';
+                csharpType = c.length == 1 ? 'char' : 'string';
                 break;
-            case 'timestamp':
-                csharpType = 'DateTime';
+
+            case 'nchar':
+                csharpType = c.length == 1 ? 'char' : 'string';
                 break;
-            case 'tinyint':
-                if (columnType == 'tinyint(1)') {
-                    csharpType = 'bool';
-                } else {
-                    csharpType = unsigned ? 'byte' : 'sbyte';
-                }
-                break;
+
+            //hierarchyid
+            //geometry
+            //geography
             default:
-                console.error('unknown dataType', c.dataType);
+                csharpType = 'byte[]';
                 break;
         }
 

@@ -17,8 +17,7 @@ namespace {{nameSpace}}
 {{each columns col colIndex}}
 		private {{col | toCSharpType}} _{{ col.name | toCamelCase }};
 		/// <summary>
-		/// {{col.description | formatMulilineSummary}}
-		/// {{col.columnType}}
+		/// {{col.description | formatMultilineComment}}		
 		/// </summary>	
         [MapField("{{col.name}}"){{if col.isNullable ==1 }},Nullable{{/if}}{{if col.isIdentity ==1 }},Identity{{/if}}{{if col.isPK ==1 }},PrimaryKey({{col.colid}}){{/if}}] 
 		public {{col | toCSharpType}} {{ col.name | toCamelCase }}

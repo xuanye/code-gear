@@ -1,10 +1,11 @@
 module.exports = {
+    type: 'mysql',
     database: {
         host: '127.0.0.1',
         port: 3306,
-        database: 'sampleDb',
+        database: 'sampledb',
         user: 'root',
-        password: '123333@',
+        password: '123456',
     },
     template: {
         imports: './templates/imports.js',
