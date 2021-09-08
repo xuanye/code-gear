@@ -1,6 +1,6 @@
 {
   "name": "code-gear",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "代码生成器",
   "main": "./lib/index.js",
   "bin": {
