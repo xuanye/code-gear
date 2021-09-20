@@ -30,6 +30,7 @@ module.exports = {
         var unsigned = columnType.indexOf('unsigned') >= 0;
         switch (c.dataType) {
             case 'varchar':
+            case 'longtext':
             case 'mediumtext':
             case 'tinytext':
             case 'text':
